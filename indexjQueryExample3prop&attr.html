@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+        <div id="div01" class="div01Class" lovewho="you"></div>
+        <div id="div02" class="div02Class" lovewho="you"></div>
+        <div id="div03"></div>
+        <div id="div04"></div>
+        <div id="div05"></div>
+        <script>
+            console.log($('#div01').attr('id'));//div01
+            //注意参数是字符串
+            console.log($('#div01').prop('id'));//div01
+
+            console.log($('#div01').attr('class'));//div01Class
+            console.log($('#div01').prop('class'));//div01Class
+
+            console.log($('#div01').attr('lovewho'));//you
+            console.log($('#div01').prop('lovewho'));//undefined
+
+        /* 属性：
+            1.固有属性（特性）：例如id ,class等
+            2.自定义属性：通过自定义添加的属性
+            
+            因此这两个有一个区别：attr()可以获取所有属性（包括自定义属性），prop()不可以获取自定义属性
+         */
+
+            $('#div01').attr('class','divExample1');
+            $('#div02').prop('class','divExample2');
+
+            console.log($('#div01').attr('class'));
+            console.log($('#div02').prop('class'));
+
+            //添加属性
+            $('#div03').attr({
+                class:'div03Class',
+                love:'you'
+            })
+
+            //可以见得，prop()只能添加固有属性
+            $('#div04').prop({
+                class:'div03Class',
+                love:'you'
+            })
+
+            console.log($('#div05').attr('class'));//undefinded
+            console.log($('#div05').prop('class'));//空值
+
+
+        </script>
+
+        <div class="container">
+            <form>
+                <h4>你喜欢什么游戏？</h4>
+                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input" type="checkbox" id="checkboxItem1">
+                    <label class="custom-control-label" for="checkboxItem1">英雄联盟</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input" type="checkbox" id="checkboxItem2">
+                    <label class="custom-control-label" for="checkboxItem2">绝地求生大逃杀</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input" type="checkbox" id="checkboxItem3">
+                    <label class="custom-control-label" for="checkboxItem3">生化危机</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input" type="checkbox" id="checkboxItem4">
+                    <label class="custom-control-label" for="checkboxItem4">逃生</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input" type="checkbox" id="checkboxItem5">
+                    <label class="custom-control-label" for="checkboxItem5">王者荣耀</label>
+                </div>
+            </form>
+        </div>
+
+        <script>
+            $('#checkboxItem1').change(function(){
+                console.log($('#checkboxItem1').prop('checked'));//如果选中就是true，没有选中就是false
+                //要想动态的获取属性的状态，就要用prop()
+                if($('#checkboxItem1').prop('checked')){
+                    $('input').prop('checked',true);
+                }else{
+                    $('input').prop('checked',false);
+                }
+            });
+
+            $('#div01').removeAttr('lovewho');//removeAttr()就是用来删除属性的
+            
+            $('#div04').prop('aaa','aaa');
+            console.log($('#div04').prop('aaa'));
+            $('#div04').removeProp('aaa');
+            console.log($('#div04').prop('aaa'));
+
+        
+        </script>
+
+
+
+    </body>
+</html>

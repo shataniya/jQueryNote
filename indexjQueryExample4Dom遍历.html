@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <!-- <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css"> -->
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+        <style>
+            ul,li{
+                padding:0;
+                margin: 0;
+            }
+            ul{
+                width: 200px;
+                margin: 100px auto;
+            }
+            li{
+                list-style-type: none;
+                padding: 10px;
+                margin-bottom: 10px;
+                background-color: #e0e0e0;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>1<span class="age">12</span></li>
+            <li>2<span class="age">14</span></li>
+            <li class="test">3<span class="age">17</span></li>
+            <li>4<span class="age">18</span></li>
+            <li>5<span class="age">22</span></li>
+        </ul>
+
+        <script>
+            //$('li:odd').css('background-color',"orange");//odd是选中索引是奇数
+            //$('li:even').css('background-color',"orange");//even是选中索引是偶数
+            //$('li:first').css('background-color',"orange");//first是选中第一个
+            //$('li:last').css('background-color',"orange");//last是选中最后个
+            //$('li:eq(2)').css('background-color',"orange");//eq()是选中任意指定的索引
+            //$('li').first().css('background-color',"orange");
+            //$('li').last().css('background-color',"orange");
+            //$('li').eq(3).css('background-color',"orange");
+
+            /* 
+                odd 选取索引是奇数
+                even 选取索引是偶数
+                first 第一个
+                last 最后一个
+                eq() 指定任意索引
+
+                有相应的函数：
+                first()
+                last()
+                eq()
+
+            
+            
+             */
+            
+
+            /* 
+                prev() 是当前元素的上一个元素
+                next() 是当前元素的下一个元素
+                prevAll() 是当前去元素前的所有元素 ，简称当前元素的上半区元素
+                nextAll() 是当前元素后的所有元素，简称当前元素的下半区元素
+                siblings() 是除当前元素之外的所有元素,简称兄弟元素
+
+                记住一点：区域和区域之间取并集
+            
+            */
+
+            //$('li').eq(2).siblings().css('background-color','yellowgreen');
+
+            //$('li').not('.test').css('background-color','yellowgreen');
+            //console.log( $('li').is('.test'));//判断li里面有没有class属性为test的li
+            //$('li').slice(2,4).css('background-color','yellowgreen');//slice(num1,num2),索引从num1到num2，但是num2不要，类似于右侧开区间
+
+            var arr=[];
+            $('li').each(function(index,ele){
+                //console.log(ele);
+                //console.log(this);
+                //console.log($(ele).find('.age').text());
+                //arr.push($(ele).find('.age').text());
+                //find()是查找相应的子元素
+            });
+
+            //console.log(arr);
+            //console.log(arr.join(','));//join()是用符号隔开
+
+            /* $('li').map(function(index,ele){
+                if( $(ele).find('.age').text() >= 15 ){
+                    return(ele);//返回的是符合条件的li
+                }
+            }).css('background-color','yellowgreen'); */
+
+
+            //each()只能遍历不会返回，但是map()不仅会遍历，还会返回相应的对象
+
+            //$('li').find('.test').css('background-color',"orange");//find(),has()都是对于当前元素的子元素，用于筛选含有子元素的父元素
+
+            console.log($('li').filter('.test'));
+            $('li').filter('.test').css('background-color',"orange");//filter(),not()是相对于当前元素的，用于筛选当前元素
+
+            //each(),map()都是用于遍历，但是不同的是map()可以返回满足条件的父元素
+
+
+        </script>
+    </body>
+</html>

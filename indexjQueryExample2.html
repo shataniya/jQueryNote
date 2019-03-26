@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <div id="dom"></div>
+        <!-- 实现jQuery功能，了解jQuery的开发框架 -->
+        <!-- jQuery开发框架：
+                1.不干扰全局作用域
+                2.无new
+                3.改变原型对象
+                4.链式链接
+        -->
+        <script>
+            (function(){
+                window.jQuery = window.$ = jQuery;
+
+                /* function jQuery(id){
+                    var id = document.getElementById(id.slice(1));
+                    this[0] = id;
+                    this.length = 1;
+                    return this;
+                    //有 return 的话就是单纯的window里的object对象，也就是说，jQuery此时就是window里的简单的object对象
+                } */
+                function jQuery(id){
+                    return new init(id);
+                };
+
+                function init(id){
+                    var id = document.getElementById(id.slice(1));
+                    this[0] = id;
+                    this.length = 1;
+                    return this;
+                };
+
+                jQuery.prototype.text = function(){
+                    console.log('text');
+                    return this;
+                };
+
+                //this指的就是哪个调用就是哪个
+                jQuery.prototype.css = function(){
+                    console.log('css');
+                    return this;
+                };
+
+                //让init的原型对象和jQuery的原型对象·一致
+                init.prototype = jQuery.prototype;
+
+
+            })();
+            /* 注意一个很重要的问题，就是定义函数的时候记得两点：
+                1.(function(){})就等价于一个函数名
+                    我们在定义函数的时候，经常这样：
+                        var init = function(){};
+                        因此function(){}等价于一个函数名
+                
+                2.应用一个函数的时候，应用方式为：函数名()
+                    例如定义函数的时候有：
+                        var init = function(){};
+                        应用的时候有：
+                        init();
+                        如果换一种方式，也可以写成：
+                        (function(){})();
+             */
+             
+            console.log($('#dom'));//可以看见是window对象，因为是相当于是window.jQuery调用的，所以是window对象
+            /* console.log(new jQuery('#dom'));//添加new之后才是我们想要的 */
+
+            $('#dom').text();
+            $('#dom').css();
+            $('#dom').css().text();
+            //$('#dom').css().text();-->$('#dom').text()
+
+
+
+
+        </script>
+    </body>
+</html>

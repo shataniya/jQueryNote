@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <!-- <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css"> -->
+        <!-- 要记住，bootstrap的存在会改变padding,border向内收缩，如果注掉bootstrap，那么会恢复向外收缩 -->
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+        <style>
+            
+            .div01{
+                width:100px;
+                height:100px;
+                background-color: cornflowerblue;
+                margin:10px;
+                padding: 10px;
+                border:10px solid #b0b0b0;
+            }
+
+            #div02{
+                padding:20px;
+                margin:20px;
+                border: 10px solid red;
+                width: 200px;
+                height:300px;
+                background-color: coral;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="div01">div01</div>
+        <div id="div02">div02</div>
+        <script>
+            $('.div01').click(function(){
+                console.log($(this).css('background-color'));//颜色返回的是RGB值
+                console.log($(this).css(['width','height','background-color']));//利用数组的访问形式可以获取多个样式的值
+                //$(this).css('width','300px');
+                $(this).css({
+                    width:'+=100',//点击一下加100px
+                    height:200
+                })
+                //利用对象的形式来设置多个样式
+
+                //获取css样式的时候
+                //css(string)|css([string1,string2,...])
+
+                //设置css样式
+                //css(string,value)|css({string1:value1,string2:value2,...})
+            });
+
+            //console.log($('.div01').width());//100,返回的结果是数字number,没有px
+            //console.log($('.div01').css('width'));//100px,返回的是字符串，带有px
+            //console.log($('.div01').innerWidth());
+
+            //width() --> content
+            //innerWidth() --> content + padding
+            //outerWidth() --> content + padding + border
+            //outerWidth(true) --> content + padding + border + margin
+
+            console.log($('.div01').width());//100
+            console.log($('.div01').innerWidth());//120
+            console.log($('.div01').outerWidth());//140
+            console.log($('.div01').outerWidth(true));//160
+            console.log($('.div01').css('width'));//100px
+
+            $('.div01').innerWidth(10);
+
+
+        </script>
+    </body>
+</html>

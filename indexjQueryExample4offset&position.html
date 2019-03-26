@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <!-- <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css"> -->
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+        <style>
+            #div01{
+                width: 300px;
+                height: 300px;
+                position: relative;
+                left: 100px;
+                top: 100px;
+                background-color: #b0b0b0;
+            }
+
+            #div02{
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                left: 100px;
+                top: 100px;
+                background-color: chartreuse;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div01">
+            <div id="div02"></div>
+        </div>
+        <script>
+            console.log($('#div02').offset());//相对于body来定位的，注意一点，body默认 margin:8px
+            console.log($('#div02').position());//获取最近的有定位的父级的有定位的位置
+            $('#div02').offset({
+                left:200,
+                top:200
+            });
+            console.log($('#div02').offset());
+            console.log($('#div02').position());
+        </script>
+    </body>
+</html>

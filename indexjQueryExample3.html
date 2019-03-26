@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+        <div id="div01">hello</div>
+        <div id="div02">world</div>
+        <button class="btn btn-primary" type="button" id="btn01">btn01</button>
+        <input class="form-control" type="text" value="Name" id="inputExample1">
+        <button type="button" class="btn btn-info" id="btn02">btn02</button>
+        <p id="selectLabel">说出你喜欢我的理由：</p>
+        <select name="list" class="custom-select col-2" id="selectList" aria-labelledby="selectLabel">
+            <option value="cute">可爱</option>
+            <option value="tender">温柔</option>
+            <option value="no-reason">没理由</option>
+        </select>
+        <script>
+            /* console.log($('#div01').text()); */
+            /* text()-->innerText() */
+            $('#btn01').click(function(){
+                console.log($('#div01').text());
+                $('#div02').text('love');
+                /* text(index,ele),index指的是索引,ele指的是内容 */
+            })
+            /* innerHTML--->html(),和text()不同的是，他只会获取第一个内容，而text()会遍历所有的内容 */
+            //html()和text()还有一个区别就是：html()会识别标签，但是text()不会识别标签
+
+            $('#div01').text('<b>world</b>');//text()不会识别标签
+            $('#div02').html('<b>world</b>');//html()会识别标签
+
+            //text()返回数组
+            console.log($('div').text());
+            //html()只返回第一个元素
+            console.log($('div').html());
+
+            //val()是取值函数
+            $('#btn02').click(function(){
+                console.log($('#inputExample1').val());//val()可以获取value属性的值
+                $('#inputExample1').val('nameexample');
+            });
+
+
+        </script>
+    </body>
+</html>

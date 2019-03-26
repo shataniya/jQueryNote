@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
+        <!-- <script>
+        $(function(){
+            console.log(jQuery('.ulcontent > #two').text());
+            console.log($('.ulcontent > #two').text());
+            /* $和jQuery是一样的 */
+            console.log($('li').text());
+        })
+        /* 如果想要把代码拖到上面来，就必须把代码封装到一个函数里面去，例如 $(function(){})，这样就可以等DOM加载完以后
+            再使用函数，不会出错
+         */
+        </script> -->
+    </head>
+    <body>
+        <div id="dom">hello world</div>
+        <ul class="ulcontent">
+            <li>hello1</li>
+            <li id="two">hello2</li>
+            <li>hello3</li>
+            <li>hello4</li>
+        </ul>
+        <script>
+            console.log(jQuery('.ulcontent > #two').text());
+            console.log($('.ulcontent > #two').text());
+            /* $和jQuery是一样的 */
+            console.log($('li').text());
+            console.log($(null));
+            console.log($(true));
+        </script>
+    </body>
+</html>

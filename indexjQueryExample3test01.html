@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+        <style>
+            ul,li,p{
+                padding:0;
+                margin:0;
+            }
+            
+            .item{
+                list-style:none;
+                background-color: #f0f0f0;
+                margin-bottom:10px;
+                border-radius: 8px;/* 设置圆角用border-radius */
+            }
+
+            p{
+                padding:10px 0;
+                margin:0 10px;
+            }
+
+            span{
+                float: right;
+            }
+
+            #buybtn{
+                margin:10px 125px;
+            }
+
+            .contentItem{
+                width:300px;
+                margin:100px auto;
+            }
+
+            .active{
+                background-color: cornflowerblue;
+                color: #fff;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="contentItem">
+                <ul>
+                    <li class="item">
+                        <p>西瓜<span>$10</span></p>
+                    </li>
+                    <li class="item">
+                        <p>苹果<span>$2</span></p>
+                    </li>
+                    <li class="item">
+                        <p>椰子<span>$20</span></p>    
+                    </li>
+                    <li class="item">
+                        <p>芒果<span>$6</span></p>    
+                    </li>
+                    <li class="item">
+                        <p>火龙果<span>$10</span></p>
+                    </li>
+                </ul>
+                <button type="button" class="btn btn-outline-primary" id="buybtn">Buy</button>
+            </div>
+        </div>
+
+        <script>
+            
+            $('.item').click(function(){
+                if($(this).hasClass('active')){
+                    $(this).removeClass('active');
+                }else{
+                    $(this).addClass('active');
+                }
+                
+                /* this.addClass('active'); 
+                    不能这么用，因为原生的dom里边没有addClass()的方法，只有jQuery里边才有addClass()方法
+                */
+            });
+        
+        </script>
+
+    </body>
+</html>
